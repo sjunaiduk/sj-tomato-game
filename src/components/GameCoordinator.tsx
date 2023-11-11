@@ -19,9 +19,16 @@ const GameCoordinator = () => {
     }
     setCurrentQuestionNumber(currentQuestionNumber + 1);
   };
-
+  const handlePlayAgain = () => {
+    console.log("play again ", currentQuestionNumber);
+    // save scores somewhere
+    setCurrentQuestionNumber(1);
+    setCurrentScore(0);
+  };
   if (currentQuestionNumber > totalQuestions) {
-    return <GameOver currentScore={currentScore} />;
+    return (
+      <GameOver handlePlayAgain={handlePlayAgain} currentScore={currentScore} />
+    );
   }
 
   return (
