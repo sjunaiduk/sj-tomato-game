@@ -1,5 +1,5 @@
 import GameCard from "./Game";
-import { Button, Container, HStack, Heading, Text } from "@chakra-ui/react";
+import { Container, HStack, Heading, Skeleton, Text } from "@chakra-ui/react";
 import useGameClient from "../hooks/useGameClient";
 import GameOver from "./GameOver";
 
@@ -10,6 +10,8 @@ const GameCoordinator = () => {
     currentQuestion,
     currentQuestionNumber,
     setCurrentQuestionNumber,
+    isLoading,
+    error,
   } = useGameClient();
 
   const totalQuestions = 5;
@@ -25,6 +27,19 @@ const GameCoordinator = () => {
     setCurrentQuestionNumber(1);
     setCurrentScore(0);
   };
+
+  if (error) {
+    return (
+      <Container centerContent>
+        <Heading mt={10} size={"xl"}>
+          Tomato Arena
+        </Heading>
+        <Text fontSize={"lg"} fontWeight={"bold"}>
+          Something went wrong... Please try again later
+        </Text>
+      </Container>
+    );
+  }
   if (currentQuestionNumber > totalQuestions) {
     return (
       <GameOver handlePlayAgain={handlePlayAgain} currentScore={currentScore} />
@@ -47,7 +62,9 @@ const GameCoordinator = () => {
           </Text>
         </HStack>
 
-        <GameCard onSubmit={handleSumbit} image={currentQuestion.question} />
+        <Skeleton borderRadius={20} isLoaded={!isLoading}>
+          <GameCard onSubmit={handleSumbit} image={currentQuestion.question} />
+        </Skeleton>
       </Container>
     </>
   );

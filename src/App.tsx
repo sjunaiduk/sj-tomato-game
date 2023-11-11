@@ -1,4 +1,4 @@
-import { SimpleGrid, Stack } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import "./App.css";
 import Navbar from "./components/Navigation/Navbar";
 import { Links } from "./constants/Links";

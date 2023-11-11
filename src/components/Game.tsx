@@ -4,7 +4,6 @@ import {
   CardBody,
   CardFooter,
   Divider,
-  Heading,
   Image,
   Input,
   Stack,
