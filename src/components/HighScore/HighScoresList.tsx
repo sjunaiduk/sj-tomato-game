@@ -9,8 +9,11 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
+import { useState } from "react";
+import HighScore from "../../models/HighScore";
 
 const HighScoresList = () => {
+  const [highScoresList, setHighScoresList] = useState<HighScore[]>([]);
   return (
     <Container centerContent maxW={"700px"}>
       <Heading mt={10} size={"3xl"}>
@@ -31,18 +34,19 @@ const HighScoresList = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>inches</Td>
-              <Td isNumeric>25.4</Td>
-            </Tr>
-            <Tr>
-              <Td>feet</Td>
-              <Td isNumeric>30.48</Td>
-            </Tr>
-            <Tr>
-              <Td>yards</Td>
-              <Td isNumeric>0.91444</Td>
-            </Tr>
+            {highScoresList.map((highScore) => {
+              return (
+                <Tr key={highScore.name}>
+                  <Td>{highScore.name}</Td>
+                  <Td isNumeric>{highScore.score}</Td>
+                </Tr>
+              );
+            })}
+            {highScoresList.length === 0 && (
+              <Tr>
+                <Td colSpan={2}>No high scores yet!</Td>
+              </Tr>
+            )}
           </Tbody>
         </Table>
       </TableContainer>
