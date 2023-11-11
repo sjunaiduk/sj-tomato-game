@@ -1,11 +1,12 @@
-import GameCoordinator from "../components/Game/GameCoordinator";
+import { Heading } from "@chakra-ui/react";
 import HighScoresList from "../components/HighScore/HighScoresList";
-import Navbar from "../components/Navigation/Navbar";
-import { Links } from "../constants/Links";
 
 const HighScoresPage = () => {
   return (
     <>
+      <Heading textAlign={"center"} mt={10} size={"3xl"}>
+        High Scores
+      </Heading>
       <HighScoresList />
     </>
   );

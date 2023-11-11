@@ -1,6 +1,5 @@
 import {
   Container,
-  Heading,
   Table,
   TableContainer,
   Tbody,
@@ -21,17 +20,14 @@ const HighScoresList = () => {
 
   return (
     <Container centerContent maxW={"700px"}>
-      <Heading mt={10} size={"3xl"}>
-        High Scores
-      </Heading>
       <TableContainer
         margin={10}
         paddingY={3}
-        border={"1px solid grey"}
+        border={"2px solid red"}
         borderRadius={15}
         width={"100%"}
       >
-        <Table variant="simple">
+        <Table variant="simple" fontSize={"lg"} fontWeight={"600"}>
           <Thead>
             <Tr>
               <Th>Name</Th>

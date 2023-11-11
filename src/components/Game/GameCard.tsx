@@ -74,7 +74,7 @@ const Game = ({ image, onSubmit }: Props) => {
               />
             </FormControl>
 
-            <Button type="submit" size={"lg"} colorScheme="blue">
+            <Button type="submit" size={"lg"} colorScheme="red">
               Submit
             </Button>
           </Stack>

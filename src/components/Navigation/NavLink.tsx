@@ -1,4 +1,4 @@
-import { Box, Button, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, useColorModeValue, Text } from "@chakra-ui/react";
 
 interface Props {
   children: React.ReactNode;
@@ -12,14 +12,15 @@ export const NavLink = ({ children, type }: Props) => {
       fontSize={"lg"}
       rounded={"md"}
       transition={"all 0.1s linear"}
-      color={useColorModeValue("gray.600", "gray.300")}
       _hover={{
         color: useColorModeValue("black", "white"),
       }}
     >
-      {children}
+      <Text textTransform={"capitalize"} fontWeight={"600"}>
+        {children}
+      </Text>
     </Box>
   ) : (
-    <Button>Play</Button>
+    <Button colorScheme="red">Play</Button>
   );
 };
