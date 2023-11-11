@@ -1,7 +1,15 @@
 import GameCard from "./Game";
-import { Container, HStack, Heading, Skeleton, Text } from "@chakra-ui/react";
+import {
+  Container,
+  HStack,
+  Heading,
+  Skeleton,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import useGameClient from "../hooks/useGameClient";
 import GameOver from "./GameOver";
+import GameRules from "../constants/GameRules";
 
 const GameCoordinator = () => {
   const {
@@ -14,10 +22,26 @@ const GameCoordinator = () => {
     error,
   } = useGameClient();
 
-  const totalQuestions = 5;
+  const toast = useToast();
+
   const handleSumbit = (answer: number) => {
     if (answer === currentQuestion.solution) {
       setCurrentScore(currentScore + 1);
+      toast({
+        title: "Correct!",
+        description: "You got it right!",
+        status: "success",
+        duration: 1500,
+        isClosable: true,
+      });
+    } else {
+      toast({
+        title: "Incorrect!",
+        description: "You got it wrong!",
+        status: "error",
+        duration: 1500,
+        isClosable: true,
+      });
     }
     setCurrentQuestionNumber(currentQuestionNumber + 1);
   };
@@ -40,7 +64,7 @@ const GameCoordinator = () => {
       </Container>
     );
   }
-  if (currentQuestionNumber > totalQuestions) {
+  if (currentQuestionNumber > GameRules.totalQuestions) {
     return (
       <GameOver handlePlayAgain={handlePlayAgain} currentScore={currentScore} />
     );
@@ -58,7 +82,7 @@ const GameCoordinator = () => {
             Current Score: {currentScore}
           </Text>
           <Text fontSize={"lg"} fontWeight={"bold"}>
-            Question {currentQuestionNumber} of {totalQuestions}
+            Question {currentQuestionNumber} of {GameRules.totalQuestions}
           </Text>
         </HStack>
 
