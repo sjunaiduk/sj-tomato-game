@@ -10,7 +10,7 @@ function App() {
       <SimpleGrid columns={1}>
         <Navbar links={Links} />
 
-        {/* <GameCoordinator /> */}
+        <GameCoordinator />
         <HighScoresList />
       </SimpleGrid>
     </>

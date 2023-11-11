@@ -9,11 +9,16 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HighScore from "../../models/HighScore";
+import { loadHighscores } from "../../services/highscore-manager";
 
 const HighScoresList = () => {
   const [highScoresList, setHighScoresList] = useState<HighScore[]>([]);
+  useEffect(() => {
+    setHighScoresList(loadHighscores());
+  }, []);
+
   return (
     <Container centerContent maxW={"700px"}>
       <Heading mt={10} size={"3xl"}>

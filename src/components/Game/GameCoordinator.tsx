@@ -10,6 +10,7 @@ import {
 import useGameClient from "../../hooks/useGameClient";
 import GameOver from "./GameOver";
 import GameRules from "../../constants/GameRules";
+import { saveHighScoreByName } from "../../services/highscore-manager";
 
 const GameCoordinator = () => {
   const {
@@ -65,6 +66,7 @@ const GameCoordinator = () => {
     );
   }
   if (currentQuestionNumber > GameRules.totalQuestions) {
+    saveHighScoreByName("Syed", currentScore);
     return (
       <GameOver handlePlayAgain={handlePlayAgain} currentScore={currentScore} />
     );
