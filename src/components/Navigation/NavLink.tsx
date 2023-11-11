@@ -1,15 +1,13 @@
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, useColorModeValue } from "@chakra-ui/react";
 
 interface Props {
   children: React.ReactNode;
+  type?: "Button";
 }
-export const NavLink = (props: Props) => {
-  const { children } = props;
-
-  return (
+export const NavLink = ({ children, type }: Props) => {
+  return type !== "Button" ? (
     <Box
-      as="a"
-      px={2}
+      px={3}
       py={1}
       fontSize={"lg"}
       rounded={"md"}
@@ -18,9 +16,10 @@ export const NavLink = (props: Props) => {
       _hover={{
         color: useColorModeValue("black", "white"),
       }}
-      href={"#"}
     >
       {children}
     </Box>
+  ) : (
+    <Button>Play</Button>
   );
 };

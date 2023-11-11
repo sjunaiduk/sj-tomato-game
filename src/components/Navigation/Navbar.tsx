@@ -14,9 +14,11 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { NavLink } from "./NavLink";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
+import NavBarLink from "../../models/NavBarLink";
 
 interface Props {
-  links: string[];
+  links: NavBarLink[];
 }
 export default function Navbar({ links }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -49,8 +51,10 @@ export default function Navbar({ links }: Props) {
 
           <HStack as={"nav"} spacing={4}>
             <Box display={{ base: "none", md: "flex" }}>
-              {links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+              {links.map((link, index) => (
+                <Link key={index} to={link.path}>
+                  <NavLink type={link.type}>{link.name}</NavLink>
+                </Link>
               ))}
             </Box>
             <Image
@@ -84,9 +88,11 @@ export default function Navbar({ links }: Props) {
           transition={"all 0.2s ease-in-out"}
         >
           <Stack as={"nav"} spacing={3} pb={5}>
-            {links.map((link) => (
-              <Box key={link}>
-                <NavLink key={link}>{link}</NavLink>
+            {links.map((link, index) => (
+              <Box key={index}>
+                <Link to={link.path}>
+                  <NavLink type={link.type}>{link.name}</NavLink>
+                </Link>
                 <Divider orientation="horizontal" />
               </Box>
             ))}
