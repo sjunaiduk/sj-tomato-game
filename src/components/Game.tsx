@@ -1,9 +1,12 @@
 import {
+  Box,
   Button,
   Card,
   CardBody,
   CardFooter,
   Divider,
+  FormControl,
+  FormErrorMessage,
   Image,
   Input,
   Stack,
@@ -39,37 +42,44 @@ const Game = ({ image, onSubmit }: Props) => {
         </VStack>
       </CardBody>
       <CardFooter>
-        <Stack
+        <Box
+          as="form"
           width={"100%"}
-          justifyContent={"center"}
-          flexDirection={{
-            base: "column",
-            md: "row",
+          onSubmit={(event: { preventDefault: () => void }) => {
+            event.preventDefault();
+            if (ref.current) {
+              onSubmit(parseInt(ref.current.value));
+            }
           }}
         >
-          <Input
-            size={"lg"}
-            width={{
-              base: "100%",
-              md: "50%",
+          <Stack
+            width={"100%"}
+            justifyContent={"center"}
+            flexDirection={{
+              base: "column",
+              md: "row",
             }}
-            placeholder="Enter your answer"
-            type="number"
-            isRequired
-            ref={ref}
-          />
-          <Button
-            onClick={() => {
-              if (ref.current) {
-                onSubmit(parseInt(ref.current.value));
-              }
-            }}
-            size={"lg"}
-            colorScheme="blue"
           >
-            Submit
-          </Button>
-        </Stack>
+            <FormControl
+              isRequired
+              width={{
+                base: "100%",
+                md: "45%",
+              }}
+            >
+              <Input
+                size={"lg"}
+                placeholder="Enter your answer"
+                type="number"
+                ref={ref}
+              />
+            </FormControl>
+
+            <Button type="submit" size={"lg"} colorScheme="blue">
+              Submit
+            </Button>
+          </Stack>
+        </Box>
       </CardFooter>
     </Card>
   );
