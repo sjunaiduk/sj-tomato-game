@@ -1,30 +1,16 @@
-import { useEffect, useState } from "react";
 import GameCard from "./Game";
-import { Container, HStack, Heading, Stack, Text } from "@chakra-ui/react";
-import Question from "../models/Question";
-import tomatoApiClient from "../services/api-client";
+import { Button, Container, HStack, Heading, Text } from "@chakra-ui/react";
+import useGameClient from "../hooks/useGameClient";
+import GameOver from "./GameOver";
 
 const GameCoordinator = () => {
-  const [currentScore, setCurrentScore] = useState(0);
-  const [currentQuestionNumber, setCurrentQuestionNumber] = useState(1);
-  const [currentQuestion, setCurrentQuestion] = useState<Question>(
-    {} as Question
-  );
-
-  useEffect(() => {
-    const controller = new AbortController();
-    tomatoApiClient
-      .get("/", {
-        signal: controller.signal,
-      })
-      .then((response) => {
-        setCurrentQuestion(response.data);
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, [currentQuestionNumber]);
+  const {
+    currentScore,
+    setCurrentScore,
+    currentQuestion,
+    currentQuestionNumber,
+    setCurrentQuestionNumber,
+  } = useGameClient();
 
   const totalQuestions = 5;
   const handleSumbit = (answer: number) => {
@@ -33,6 +19,10 @@ const GameCoordinator = () => {
     }
     setCurrentQuestionNumber(currentQuestionNumber + 1);
   };
+
+  if (currentQuestionNumber > totalQuestions) {
+    return <GameOver currentScore={currentScore} />;
+  }
 
   return (
     <>

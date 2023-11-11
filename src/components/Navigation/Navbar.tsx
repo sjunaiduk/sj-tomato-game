@@ -85,10 +85,10 @@ export default function Navbar({ links }: Props) {
         >
           <Stack as={"nav"} spacing={3} pb={5}>
             {links.map((link) => (
-              <>
+              <Box key={link}>
                 <NavLink key={link}>{link}</NavLink>
                 <Divider orientation="horizontal" />
-              </>
+              </Box>
             ))}
           </Stack>
         </Box>
