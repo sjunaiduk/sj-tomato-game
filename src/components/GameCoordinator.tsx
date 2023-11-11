@@ -1,14 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GameCard from "./Game";
 import { Container, HStack, Heading, Stack, Text } from "@chakra-ui/react";
 import Question from "../models/Question";
+import tomatoApiClient from "../services/api-client";
 
 const GameCoordinator = () => {
   const [currentScore, setCurrentScore] = useState(0);
-  const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
+  const [currentQuestionNumber, setCurrentQuestionNumber] = useState(1);
   const [currentQuestion, setCurrentQuestion] = useState<Question>(
     {} as Question
   );
+
+  useEffect(() => {
+    const controller = new AbortController();
+    tomatoApiClient
+      .get("/", {
+        signal: controller.signal,
+      })
+      .then((response) => {
+        setCurrentQuestion(response.data);
+      });
+
+    return () => {
+      controller.abort();
+    };
+  }, [currentQuestionNumber]);
 
   const totalQuestions = 5;
   const handleSumbit = (answer: number) => {
@@ -33,10 +49,8 @@ const GameCoordinator = () => {
             Question {currentQuestionNumber} of {totalQuestions}
           </Text>
         </HStack>
-        <GameCard
-          onSubmit={handleSumbit}
-          image="https://www.sanfoh.com/uob/tomato/data/tecddf6ec4de4cf8f834da72c5bn785.png"
-        />
+
+        <GameCard onSubmit={handleSumbit} image={currentQuestion.question} />
       </Container>
     </>
   );
