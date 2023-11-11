@@ -1,4 +1,4 @@
-import GameCard from "./Game";
+import GameCard from "./GameCard";
 import {
   Container,
   HStack,
@@ -7,9 +7,9 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import useGameClient from "../hooks/useGameClient";
+import useGameClient from "../../hooks/useGameClient";
 import GameOver from "./GameOver";
-import GameRules from "../constants/GameRules";
+import GameRules from "../../constants/GameRules";
 
 const GameCoordinator = () => {
   const {
