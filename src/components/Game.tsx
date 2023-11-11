@@ -11,12 +11,15 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useRef } from "react";
 
 interface Props {
   image: string;
+  onSubmit: (answer: number) => void;
 }
 
-const GameCard = ({ image }: Props) => {
+const Game = ({ image, onSubmit }: Props) => {
+  const ref = useRef<HTMLInputElement>(null);
   return (
     <Card
       minHeight={{
@@ -29,8 +32,7 @@ const GameCard = ({ image }: Props) => {
     >
       <CardBody>
         <VStack>
-          <Heading size={"xl"}>Tomato Arena</Heading>
-          <Text fontSize={"md"}>
+          <Text fontSize={"lg"}>
             Work out the solution to the problem and submit your answer to win!
           </Text>
           <Divider mb={3} />
@@ -54,8 +56,18 @@ const GameCard = ({ image }: Props) => {
             }}
             placeholder="Enter your answer"
             type="number"
+            isRequired
+            ref={ref}
           />
-          <Button size={"lg"} colorScheme="blue">
+          <Button
+            onClick={() => {
+              if (ref.current) {
+                onSubmit(parseInt(ref.current.value));
+              }
+            }}
+            size={"lg"}
+            colorScheme="blue"
+          >
             Submit
           </Button>
         </Stack>
@@ -64,4 +76,4 @@ const GameCard = ({ image }: Props) => {
   );
 };
 
-export default GameCard;
+export default Game;
