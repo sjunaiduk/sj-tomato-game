@@ -93,8 +93,6 @@ export default function Navbar({ links }: Props) {
           </Stack>
         </Box>
       </Box>
-
-      <Box p={4}>Main Content Here</Box>
     </>
   );
 }
