@@ -7,7 +7,9 @@ interface Props {
 export const NavLink = ({ children, type }: Props) => {
   return type !== "Button" ? (
     <Box
-      px={3}
+      px={{
+        md: 3,
+      }}
       py={1}
       fontSize={"lg"}
       rounded={"md"}
@@ -21,6 +23,8 @@ export const NavLink = ({ children, type }: Props) => {
       </Text>
     </Box>
   ) : (
-    <Button colorScheme="red">Play</Button>
+    <Button colorScheme="red" size={"lg"}>
+      Play
+    </Button>
   );
 };

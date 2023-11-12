@@ -74,7 +74,7 @@ const GameCoordinator = () => {
 
   return (
     <>
-      <Container centerContent>
+      <Container centerContent paddingBottom={20}>
         <Heading mt={10} size={"xl"}>
           Tomato Arena
         </Heading>

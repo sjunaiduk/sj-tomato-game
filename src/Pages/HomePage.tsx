@@ -35,6 +35,8 @@ const HomePage = () => {
           </Text>
           <Stack
             direction={{ base: "column", sm: "row" }}
+            justifyContent={"center"}
+            alignItems="center"
             w={{ base: "100%", sm: "auto" }}
             spacing={5}
           >

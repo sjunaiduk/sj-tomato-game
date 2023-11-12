@@ -50,7 +50,7 @@ export default function Navbar({ links }: Props) {
           </HStack>
 
           <HStack as={"nav"} spacing={4}>
-            <Box display={{ base: "none", md: "flex" }}>
+            <Box alignItems={"center"} display={{ base: "none", md: "flex" }}>
               {links.map((link, index) => (
                 <Link key={index} to={link.path}>
                   <NavLink type={link.type}>{link.name}</NavLink>
@@ -89,12 +89,14 @@ export default function Navbar({ links }: Props) {
         >
           <Stack as={"nav"} spacing={3} pb={5}>
             {links.map((link, index) => (
-              <Box key={index}>
-                <Link to={link.path}>
-                  <NavLink type={link.type}>{link.name}</NavLink>
-                </Link>
+              <>
+                <Box key={index} ml={4}>
+                  <Link to={link.path}>
+                    <NavLink type={link.type}>{link.name}</NavLink>
+                  </Link>
+                </Box>
                 <Divider orientation="horizontal" />
-              </Box>
+              </>
             ))}
           </Stack>
         </Box>
