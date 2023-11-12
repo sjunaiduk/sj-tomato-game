@@ -2,15 +2,15 @@ import { Box, Button, useColorModeValue, Text } from "@chakra-ui/react";
 import { authContext } from "../../context/AuthenticationContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
+import NavBarLink from "../../models/NavBarLink";
 
 interface Props {
-  children: React.ReactNode;
-  type?: "Play" | "Logout" | "Login";
+  link: NavBarLink;
 }
-export const NavLink = ({ children, type }: Props) => {
+export const NavLink = ({ link }: Props) => {
   const { logout } = useContext(authContext);
   const navigate = useNavigate();
-  return type === "Play" ? (
+  return link.type === "Play" ? (
     <Button
       ml={{
         md: 2,
@@ -18,9 +18,9 @@ export const NavLink = ({ children, type }: Props) => {
       colorScheme="red"
       size={"lg"}
     >
-      Play
+      {link.name}
     </Button>
-  ) : type === "Login" ? (
+  ) : link.type === "Login" ? (
     <Button
       ml={{
         md: 2,
@@ -28,9 +28,9 @@ export const NavLink = ({ children, type }: Props) => {
       colorScheme="red"
       size={"lg"}
     >
-      Login
+      {link.name}
     </Button>
-  ) : type === "Logout" ? (
+  ) : link.type === "Logout" ? (
     <Button
       onClick={() => {
         logout();
@@ -42,7 +42,7 @@ export const NavLink = ({ children, type }: Props) => {
       colorScheme="red"
       size={"lg"}
     >
-      Logout
+      {link.name}
     </Button>
   ) : (
     <Box
@@ -58,7 +58,7 @@ export const NavLink = ({ children, type }: Props) => {
       }}
     >
       <Text textTransform={"capitalize"} fontWeight={"600"}>
-        {children}
+        {link.name}
       </Text>
     </Box>
   );

@@ -57,7 +57,7 @@ export default function Navbar({ links }: Props) {
             <Box alignItems={"center"} display={{ base: "none", md: "flex" }}>
               {links.map((link, index) => (
                 <Link key={index} to={link.path}>
-                  <NavLink type={link.type}>{link.name}</NavLink>
+                  <NavLink link={link} />
                 </Link>
               ))}
             </Box>
@@ -96,10 +96,10 @@ export default function Navbar({ links }: Props) {
               <div key={index}>
                 <Box key={index} ml={4}>
                   <Link to={link.path}>
-                    <NavLink type={link.type}>{link.name}</NavLink>
+                    <NavLink link={link} />
                   </Link>
                 </Box>
-                <Divider orientation="horizontal" />
+                <Divider mt={2} orientation="horizontal" />
               </div>
             ))}
           </Stack>
