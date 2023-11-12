@@ -1,5 +1,4 @@
 import { Box, Button, useColorModeValue, Text } from "@chakra-ui/react";
-import { clearUserFromStorage } from "../../services/login-manager";
 import { authContext } from "../Authentication/AuthenticationContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router";
