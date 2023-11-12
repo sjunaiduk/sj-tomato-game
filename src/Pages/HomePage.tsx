@@ -6,9 +6,12 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../components/Authentication/AuthenticationContext";
 
 const HomePage = () => {
+  const { user } = useContext(authContext);
   return (
     <>
       <Container p={{ base: 8, sm: 14 }}>
@@ -25,13 +28,13 @@ const HomePage = () => {
               color={useColorModeValue("gray.800", "white")}
               bg="linear-gradient(transparent 50%, #ed4848 50%)"
             >
-              {"{"}Syed Junaid{"}"}
+              {"{"}by Syed Junaid{"}"}
             </chakra.span>
           </chakra.h1>
           <Text maxW="550px" fontSize="xl" textAlign="center" color="gray.400">
-            Welcome to 'The Great Tomato Equation'! 🍅 Solve our ripe numerical
-            puzzles to become the Tomato Titan. It’s a race to ketchup with your
-            math skills!
+            Welcome to 'The Great Tomato Equation' {user?.username}! 🍅 Solve
+            our ripe numerical puzzles to become the Tomato Titan. It’s a race
+            to ketchup with your math skills!
           </Text>
           <Stack
             direction={{ base: "column", sm: "row" }}

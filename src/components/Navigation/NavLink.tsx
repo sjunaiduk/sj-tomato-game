@@ -12,11 +12,23 @@ export const NavLink = ({ children, type }: Props) => {
   const { logout } = useContext(authContext);
   const navigate = useNavigate();
   return type === "Play" ? (
-    <Button ml={2} colorScheme="red" size={"lg"}>
+    <Button
+      ml={{
+        md: 2,
+      }}
+      colorScheme="red"
+      size={"lg"}
+    >
       Play
     </Button>
   ) : type === "Login" ? (
-    <Button ml={2} colorScheme="red" size={"lg"}>
+    <Button
+      ml={{
+        md: 2,
+      }}
+      colorScheme="red"
+      size={"lg"}
+    >
       Login
     </Button>
   ) : type === "Logout" ? (
@@ -25,7 +37,9 @@ export const NavLink = ({ children, type }: Props) => {
         logout();
         navigate("/");
       }}
-      ml={2}
+      ml={{
+        md: 2,
+      }}
       colorScheme="red"
       size={"lg"}
     >

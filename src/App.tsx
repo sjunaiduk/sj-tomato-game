@@ -6,6 +6,7 @@ import { Links } from "./constants/Links";
 import NavBarLink from "./models/NavBarLink";
 import { useContext } from "react";
 import { authContext } from "./components/Authentication/AuthenticationContext";
+import Footer from "./components/Footer";
 // {
 //   name: "Tutorial",
 //   path: "/game",
@@ -26,9 +27,10 @@ function App() {
       ]
     : [...Links, { name: "Login", path: "/login", type: "Login" }];
   return (
-    <SimpleGrid columns={1}>
+    <SimpleGrid columns={1} height={"100vh"}>
       <Navbar links={computedLinks} />
       {<Outlet />}
+      <Footer />
     </SimpleGrid>
   );
 }

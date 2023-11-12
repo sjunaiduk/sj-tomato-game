@@ -26,7 +26,11 @@ export default function Navbar({ links }: Props) {
 
   return (
     <>
-      <Box bg={useColorModeValue("green.300", "gray.900")} px={4}>
+      <Box
+        height={"fit-content"}
+        bg={useColorModeValue("green.300", "gray.900")}
+        px={4}
+      >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -84,7 +88,7 @@ export default function Navbar({ links }: Props) {
         <Box
           display={{ md: "none" }}
           overflow={"hidden"}
-          maxHeight={isOpen ? "200px" : "0px"}
+          maxHeight={isOpen ? "500px" : "0px"}
           transition={"all 0.2s ease-in-out"}
         >
           <Stack as={"nav"} spacing={3} pb={5}>

@@ -21,13 +21,8 @@ const Login = () => {
   const navigate = useNavigate();
   const ref = useRef<HTMLInputElement>(null);
   return (
-    <Flex
-      minH={"100vh"}
-      pt={12}
-      justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
-    >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+    <Flex justify={"center"} bg={useColorModeValue("gray.50", "gray.800")}>
+      <Stack spacing={8} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Sign in to your account</Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
