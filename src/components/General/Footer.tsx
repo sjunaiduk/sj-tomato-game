@@ -10,14 +10,14 @@ import {
 const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
+      bg={useColorModeValue("green.300", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
       mt={"auto"}
     >
       <Container
         as={Stack}
         maxW={"6xl"}
-        py={4}
+        py={3}
         direction={{ base: "column", md: "row" }}
         spacing={4}
         justify={{ base: "center", md: "space-between" }}
