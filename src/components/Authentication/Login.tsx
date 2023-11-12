@@ -20,7 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
   const ref = useRef<HTMLInputElement>(null);
   return (
-    <Flex justify={"center"} bg={useColorModeValue("gray.50", "gray.800")}>
+    <Flex justify={"center"} bg={useColorModeValue("transparent", "gray.800")}>
       <Stack spacing={8} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Sign in to your account</Heading>

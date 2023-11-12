@@ -5,11 +5,12 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Routes.tsx";
 import { AuthenticationContext } from "./components/Authentication/AuthenticationContext.tsx";
+import customTheme from "./theme.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AuthenticationContext>
-      <ChakraProvider>
+      <ChakraProvider theme={customTheme}>
         <RouterProvider router={router} />
       </ChakraProvider>
     </AuthenticationContext>

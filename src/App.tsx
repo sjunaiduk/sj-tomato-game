@@ -7,16 +7,7 @@ import NavBarLink from "./models/NavBarLink";
 import { useContext } from "react";
 import { authContext } from "./components/Authentication/AuthenticationContext";
 import Footer from "./components/Footer";
-// {
-//   name: "Tutorial",
-//   path: "/game",
-//   type: "Play",
-// },
-// {
-//   name: "Logout",
-//   path: "/game",
-//   type: "Logout",
-// },
+
 function App() {
   const { user } = useContext(authContext);
   const computedLinks: NavBarLink[] = user

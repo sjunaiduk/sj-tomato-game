@@ -1,4 +1,10 @@
-import { useColorModeValue, Container, Stack, Box } from "@chakra-ui/react";
+import {
+  useColorModeValue,
+  Container,
+  Stack,
+  Box,
+  Text,
+} from "@chakra-ui/react";
 
 const Footer = () => {
   return (
@@ -15,7 +21,9 @@ const Footer = () => {
         spacing={4}
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
-      ></Container>
+      >
+        <Text>© 2023 Syed Junaid Services. All rights reserved</Text>
+      </Container>
     </Box>
   );
 };
