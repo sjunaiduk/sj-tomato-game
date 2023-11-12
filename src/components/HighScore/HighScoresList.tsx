@@ -7,6 +7,7 @@ import {
   Th,
   Thead,
   Tr,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import HighScore from "../../models/HighScore";
@@ -23,7 +24,11 @@ const HighScoresList = () => {
       <TableContainer
         margin={10}
         paddingY={3}
-        border={"2px solid red"}
+        border={useColorModeValue("2px solid green", "2px solid red")}
+        boxShadow={useColorModeValue(
+          "0px 0px 3px 0px red",
+          "0px 0px 4px 0px green"
+        )}
         borderRadius={15}
         width={"100%"}
       >

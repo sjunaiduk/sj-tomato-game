@@ -1,4 +1,6 @@
-export const Links = [
+import NavBarLink from "../models/NavBarLink";
+
+export const Links: NavBarLink[] = [
   {
     name: "Home",
     path: "/",
@@ -9,7 +11,7 @@ export const Links = [
   },
   {
     name: "Tutorial",
-    type: "Button",
     path: "/game",
+    type: "Button",
   },
 ];
