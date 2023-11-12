@@ -11,6 +11,8 @@ import useGameClient from "../../hooks/useGameClient";
 import GameOver from "./GameOver";
 import GameRules from "../../constants/GameRules";
 import { saveHighScoreByName } from "../../services/highscore-manager";
+import { useContext } from "react";
+import { authContext } from "../Authentication/AuthenticationContext";
 
 const GameCoordinator = () => {
   const {
@@ -22,6 +24,8 @@ const GameCoordinator = () => {
     isLoading,
     error,
   } = useGameClient();
+
+  const { user } = useContext(authContext);
 
   const toast = useToast();
 
@@ -66,7 +70,7 @@ const GameCoordinator = () => {
     );
   }
   if (currentQuestionNumber > GameRules.totalQuestions) {
-    saveHighScoreByName("Syed", currentScore);
+    user && saveHighScoreByName(user.username, currentScore);
     return (
       <GameOver handlePlayAgain={handlePlayAgain} currentScore={currentScore} />
     );

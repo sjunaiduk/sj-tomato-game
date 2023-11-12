@@ -11,7 +11,7 @@ const loadHighscores = (): HighScore[] => {
 const saveHighScoreByName = (name: string, score: number): void => {
   let highscores = loadHighscores();
   const existingScore = highscores.find((hscore) => hscore.name === name);
-  if (existingScore && existingScore.score > score) {
+  if ((existingScore && existingScore.score > score) || score === 0) {
     return;
   }
   highscores = highscores.filter((hscore) => hscore.name !== name);
