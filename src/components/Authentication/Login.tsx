@@ -23,7 +23,7 @@ const Login = () => {
   return (
     <Flex
       minH={"100vh"}
-      align={"center"}
+      pt={12}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
     >
@@ -31,7 +31,11 @@ const Login = () => {
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Sign in to your account</Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool <Text color={"blue.400"}>features</Text> ✌️
+            to start {` `}
+            <Box as="span" color={"red.400"}>
+              playing
+            </Box>{" "}
+            🍅
           </Text>
         </Stack>
         <Box
@@ -56,24 +60,24 @@ const Login = () => {
                 <FormLabel>Username</FormLabel>
                 <Input ref={ref} type="Username" required />
               </FormControl>
-              <FormControl id="password">
+              {/* <FormControl id="password">
                 <FormLabel>Password</FormLabel>
                 <Input type="password" />
-              </FormControl>
+              </FormControl> */}
               <Stack spacing={10}>
-                <Stack
+                {/* <Stack
                   direction={{ base: "column", sm: "row" }}
                   align={"start"}
                   justify={"space-between"}
                 >
                   <Checkbox>Remember me</Checkbox>
-                  <Text color={"blue.400"}>Forgot password?</Text>
-                </Stack>
+                  <Text color={"red.400"}>Forgot password?</Text>
+                </Stack> */}
                 <Button
-                  bg={"blue.400"}
+                  bg={"red.400"}
                   color={"white"}
                   _hover={{
-                    bg: "blue.500",
+                    bg: "red.500",
                   }}
                   type="submit"
                 >
