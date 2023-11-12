@@ -19,15 +19,18 @@ const HighScoresList = () => {
     setHighScoresList(loadHighscores());
   }, []);
 
+  const orderedHighScoresList = highScoresList.sort((a, b) => {
+    return b.score - a.score;
+  });
+
   return (
     <Container centerContent maxW={"700px"}>
       <TableContainer
         margin={10}
         paddingY={3}
-        border={useColorModeValue("2px solid green", "2px solid red")}
         boxShadow={useColorModeValue(
-          "0px 0px 3px 0px red",
-          "0px 0px 4px 0px green"
+          "0px 0px 10px 0px rgba(0,0,0,0.5)",
+          "0px 0px 10px 0px  rgb(255 255 255 / 30%)"
         )}
         borderRadius={15}
         width={"100%"}
@@ -40,7 +43,7 @@ const HighScoresList = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {highScoresList.map((highScore) => {
+            {orderedHighScoresList.map((highScore) => {
               return (
                 <Tr key={highScore.name}>
                   <Td>{highScore.name}</Td>

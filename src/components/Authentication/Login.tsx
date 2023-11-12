@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext, useRef } from "react";
 import User from "../../models/User";
-import { authContext } from "./AuthenticationContext";
+import { authContext } from "../../context/AuthenticationContext";
 import { useNavigate } from "react-router";
 
 const Login = () => {

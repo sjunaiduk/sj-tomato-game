@@ -2,8 +2,8 @@ import { ReactNode, createContext, useState } from "react";
 import {
   addUserToStorageAndSetLoggedInUser,
   clearUserFromStorage,
-} from "../../services/login-manager";
-import User from "../../models/User";
+} from "../services/login-manager";
+import User from "../models/User";
 
 interface AuthenticationContextType {
   login: (user: User) => void;

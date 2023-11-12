@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { authContext } from "../components/Authentication/AuthenticationContext";
+import { authContext } from "../context/AuthenticationContext";
 
 const HomePage = () => {
   const { user } = useContext(authContext);

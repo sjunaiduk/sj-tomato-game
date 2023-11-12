@@ -3,7 +3,7 @@ import App from "../App";
 import HomePage from "../Pages/HomePage";
 import GamePage from "../Pages/GamePage";
 import HighScoresPage from "../Pages/HighScoresPage";
-import Login from "../components/Authentication/Login";
+import LoginPage from "../Pages/LoginPage";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Login />,
+        element: <LoginPage />,
       },
     ],
   },

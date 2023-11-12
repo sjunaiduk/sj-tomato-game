@@ -12,7 +12,7 @@ import GameOver from "./GameOver";
 import GameRules from "../../constants/GameRules";
 import { saveHighScoreByName } from "../../services/highscore-manager";
 import { useContext } from "react";
-import { authContext } from "../Authentication/AuthenticationContext";
+import { authContext } from "../../context/AuthenticationContext";
 
 const GameCoordinator = () => {
   const {

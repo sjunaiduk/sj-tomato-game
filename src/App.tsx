@@ -5,8 +5,8 @@ import Navbar from "./components/Navigation/Navbar";
 import { Links } from "./constants/Links";
 import NavBarLink from "./models/NavBarLink";
 import { useContext } from "react";
-import { authContext } from "./components/Authentication/AuthenticationContext";
-import Footer from "./components/Footer";
+import { authContext } from "./context/AuthenticationContext";
+import Footer from "./components/General/Footer";
 
 function App() {
   const { user } = useContext(authContext);

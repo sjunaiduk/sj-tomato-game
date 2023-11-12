@@ -4,7 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Routes.tsx";
-import { AuthenticationContext } from "./components/Authentication/AuthenticationContext.tsx";
+import { AuthenticationContext } from "./context/AuthenticationContext.tsx";
 import customTheme from "./theme.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

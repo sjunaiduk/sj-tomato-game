@@ -4,6 +4,7 @@ import {
   Stack,
   Box,
   Text,
+  HStack,
 } from "@chakra-ui/react";
 
 const Footer = () => {
@@ -23,6 +24,12 @@ const Footer = () => {
         align={{ base: "center", md: "center" }}
       >
         <Text>© 2023 Syed Junaid Services. All rights reserved</Text>
+        <HStack>
+          <Text>🍅</Text>
+          <Text>🍅</Text>
+          <Text>🍅</Text>
+          <Text>🍅</Text>
+        </HStack>
       </Container>
     </Box>
   );
