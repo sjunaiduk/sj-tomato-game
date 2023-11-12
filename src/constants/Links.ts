@@ -9,9 +9,4 @@ export const Links: NavBarLink[] = [
     name: "Highscores",
     path: "/highscores",
   },
-  {
-    name: "Tutorial",
-    path: "/game",
-    type: "Button",
-  },
 ];

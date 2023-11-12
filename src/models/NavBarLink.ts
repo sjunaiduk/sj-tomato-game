@@ -1,5 +1,5 @@
 export default interface NavBarLink {
   name: string;
   path: string;
-  type?: "Button";
+  type?: "Play" | "Login" | "Logout";
 }

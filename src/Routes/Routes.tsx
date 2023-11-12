@@ -3,6 +3,7 @@ import App from "../App";
 import HomePage from "../Pages/HomePage";
 import GamePage from "../Pages/GamePage";
 import HighScoresPage from "../Pages/HighScoresPage";
+import Login from "../components/Authentication/Login";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "highscores",
         element: <HighScoresPage />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
