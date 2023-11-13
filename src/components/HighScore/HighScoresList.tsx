@@ -43,10 +43,19 @@ const HighScoresList = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {orderedHighScoresList.map((highScore) => {
+            {orderedHighScoresList.map((highScore, index) => {
               return (
                 <Tr key={highScore.name}>
-                  <Td>{highScore.name}</Td>
+                  <Td>
+                    {index == 0
+                      ? "🥇"
+                      : index == 1
+                      ? "🥈"
+                      : index == 2
+                      ? "🥉"
+                      : ""}
+                    {highScore.name}
+                  </Td>
                   <Td isNumeric>{highScore.score}</Td>
                 </Tr>
               );
