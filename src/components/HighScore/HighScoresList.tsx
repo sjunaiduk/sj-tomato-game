@@ -29,24 +29,37 @@ const HighScoresList = () => {
         margin={10}
         paddingY={3}
         boxShadow={useColorModeValue(
-          "0px 0px 10px 0px rgba(0,0,0,0.5)",
+          "0px 0px 10px 0px rgba(0,0,0,0.3)",
           "0px 0px 10px 0px  rgb(255 255 255 / 30%)"
         )}
+        backgroundColor={useColorModeValue("green.400", "gray.800")}
         borderRadius={15}
         width={"100%"}
       >
         <Table variant="simple" fontSize={"lg"} fontWeight={"600"}>
           <Thead>
             <Tr>
-              <Th>Name</Th>
-              <Th isNumeric>Score</Th>
+              <Th fontSize={"lg"}>Name</Th>
+              <Th fontSize={"lg"} isNumeric>
+                Score
+              </Th>
             </Tr>
           </Thead>
           <Tbody>
             {orderedHighScoresList.map((highScore, index) => {
               return (
                 <Tr key={highScore.name}>
-                  <Td>
+                  <Td
+                    {...(index == 0
+                      ? { color: "gold" }
+                      : index == 1
+                      ? { color: "silver" }
+                      : index == 2
+                      ? { color: "orange" }
+                      : {})}
+                    pl={0 <= index && index <= 2 ? "1rem" : "default"}
+                    fontSize={"xl"}
+                  >
                     {index == 0
                       ? "🥇"
                       : index == 1

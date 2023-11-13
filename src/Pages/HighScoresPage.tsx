@@ -4,7 +4,7 @@ import HighScoresList from "../components/HighScore/HighScoresList";
 const HighScoresPage = () => {
   return (
     <>
-      <Heading textAlign={"center"} height="40px" size={"3xl"}>
+      <Heading textAlign={"center"} height="0px" size={"3xl"}>
         High Scores
       </Heading>
       <HighScoresList />
