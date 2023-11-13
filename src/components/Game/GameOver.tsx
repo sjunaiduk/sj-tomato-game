@@ -7,6 +7,7 @@ import {
   Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 interface Props {
   currentScore: number;
@@ -46,13 +47,8 @@ const GameOver = ({ currentScore, handlePlayAgain }: Props) => {
           >
             Play Again
           </Button>
-          <Button
-            onClick={handlePlayAgain}
-            size={"lg"}
-            fontSize={"2xl"}
-            colorScheme="green"
-          >
-            High Scores
+          <Button size={"lg"} fontSize={"2xl"} colorScheme="green">
+            <Link to="/highscores">High Scores</Link>
           </Button>
         </Flex>
       </Box>
