@@ -43,17 +43,31 @@ const HomePage = () => {
             w={{ base: "100%", sm: "auto" }}
             spacing={5}
           >
-            <Link to="game">
-              <Button
-                colorScheme="red"
-                rounded="md"
-                size="lg"
-                height="3.5rem"
-                fontSize="1.2rem"
-              >
-                Start Game
-              </Button>
-            </Link>
+            {!user ? (
+              <Link to="login">
+                <Button
+                  colorScheme="red"
+                  rounded="md"
+                  size="lg"
+                  height="3.5rem"
+                  fontSize="1.2rem"
+                >
+                  Login
+                </Button>
+              </Link>
+            ) : (
+              <Link to="game">
+                <Button
+                  colorScheme="red"
+                  rounded="md"
+                  size="lg"
+                  height="3.5rem"
+                  fontSize="1.2rem"
+                >
+                  Start Game
+                </Button>
+              </Link>
+            )}
           </Stack>
         </Stack>
       </Container>

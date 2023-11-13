@@ -1,5 +1,6 @@
 import GameCard from "./GameCard";
 import {
+  Box,
   Container,
   HStack,
   Heading,
@@ -13,6 +14,8 @@ import GameRules from "../../constants/GameRules";
 import { saveHighScoreByName } from "../../services/highscore-manager";
 import { useContext } from "react";
 import { authContext } from "../../context/AuthenticationContext";
+import ScoreIndicator from "./ScoreIndicator";
+import { QuestionIndicator } from "./QuestionIndicator";
 
 const GameCoordinator = () => {
   const {
@@ -83,14 +86,17 @@ const GameCoordinator = () => {
           Tomato Arena
         </Heading>
 
-        <HStack my={3}>
-          <Text fontSize={"lg"} fontWeight={"bold"}>
-            Current Score: {currentScore}
-          </Text>
-          <Text fontSize={"lg"} fontWeight={"bold"}>
-            Question {currentQuestionNumber} of {GameRules.totalQuestions}
-          </Text>
-        </HStack>
+        <Box my={3} width={"100%"}>
+          <ScoreIndicator
+            currentScore={currentScore}
+            maxScore={GameRules.totalQuestions}
+          />
+
+          <QuestionIndicator
+            currentQuestionNumber={currentQuestionNumber}
+            totalQuestions={GameRules.totalQuestions}
+          />
+        </Box>
 
         <Skeleton borderRadius={20} isLoaded={!isLoading}>
           <GameCard onSubmit={handleSumbit} image={currentQuestion.question} />

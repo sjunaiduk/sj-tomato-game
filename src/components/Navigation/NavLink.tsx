@@ -39,7 +39,7 @@ export const NavLink = ({ link }: Props) => {
       ml={{
         md: 2,
       }}
-      colorScheme="red"
+      colorScheme="green"
       size={"lg"}
     >
       {link.name}

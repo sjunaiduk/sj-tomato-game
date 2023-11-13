@@ -24,6 +24,8 @@ const Game = ({ image, onSubmit }: Props) => {
   return (
     <Card
       minHeight={{
+        base: "380px",
+        sm: "500px",
         md: "580px",
       }}
       minWidth={{
