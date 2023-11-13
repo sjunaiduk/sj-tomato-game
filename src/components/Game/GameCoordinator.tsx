@@ -90,10 +90,7 @@ const GameCoordinator = () => {
         </Heading>
 
         <Box my={3} width={"100%"}>
-          <ScoreIndicator
-            currentScore={currentScore}
-            maxScore={GameRules.totalQuestions}
-          />
+          <ScoreIndicator currentScore={currentScore} />
 
           <QuestionIndicator
             currentQuestionNumber={currentQuestionNumber}
