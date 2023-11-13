@@ -50,7 +50,7 @@ export const NavLink = ({ link }: Props) => {
         md: 3,
       }}
       py={1}
-      fontSize={"lg"}
+      fontSize={"xl"}
       rounded={"md"}
       transition={"all 0.1s linear"}
       _hover={{

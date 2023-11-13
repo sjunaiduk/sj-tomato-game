@@ -1,4 +1,4 @@
-import { Progress, Text, Box, HStack, VStack } from "@chakra-ui/react";
+import { Text, Box, HStack, VStack } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 interface Props {
@@ -6,21 +6,13 @@ interface Props {
   maxScore: number;
 }
 const ScoreIndicator = ({ currentScore, maxScore }: Props) => (
-  <VStack width={"100%"}>
+  <VStack width={"100%"} mb={3}>
     <HStack>
       <StarIcon color="yellow.400" mr={2} />
-      <Text fontWeight="bold" fontSize="xl" mr={2}>
+      <Text fontWeight="bold" fontSize="3xl" mr={2}>
         Score: {currentScore}
       </Text>
     </HStack>
-
-    <Box width={"100%"}>
-      <Progress
-        value={(currentScore / maxScore) * 100}
-        size="lg"
-        colorScheme="green"
-      />
-    </Box>
   </VStack>
 );
 
