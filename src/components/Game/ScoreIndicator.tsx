@@ -1,11 +1,10 @@
-import { Text, Box, HStack, VStack } from "@chakra-ui/react";
+import { Text, HStack, VStack } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 interface Props {
   currentScore: number;
-  maxScore: number;
 }
-const ScoreIndicator = ({ currentScore, maxScore }: Props) => (
+const ScoreIndicator = ({ currentScore }: Props) => (
   <VStack width={"100%"} mb={3}>
     <HStack>
       <StarIcon color="yellow.400" mr={2} />
