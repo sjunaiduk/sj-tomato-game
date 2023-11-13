@@ -4,6 +4,7 @@ import {
   Button,
   Text,
   Box,
+  Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
 
@@ -27,18 +28,33 @@ const GameOver = ({ currentScore, handlePlayAgain }: Props) => {
         <Heading size={"4xl"} textAlign={"center"}>
           Game Over!
         </Heading>
-        <Text mt={5} fontSize={"lg"} fontWeight={"bold"}>
+        <Text my={10} fontSize={"2xl"} fontWeight={"bold"}>
           Final Score: {currentScore}
         </Text>
-        <Button
-          onClick={handlePlayAgain}
-          size={"lg"}
-          fontSize={"2xl"}
-          mt={100}
-          colorScheme="red"
+        <Flex
+          direction={{
+            base: "column",
+            md: "row",
+          }}
+          gap={3}
         >
-          Play Again
-        </Button>
+          <Button
+            onClick={handlePlayAgain}
+            size={"lg"}
+            fontSize={"2xl"}
+            colorScheme="red"
+          >
+            Play Again
+          </Button>
+          <Button
+            onClick={handlePlayAgain}
+            size={"lg"}
+            fontSize={"2xl"}
+            colorScheme="green"
+          >
+            High Scores
+          </Button>
+        </Flex>
       </Box>
     </Container>
   );
