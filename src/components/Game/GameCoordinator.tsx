@@ -71,11 +71,15 @@ const GameCoordinator = () => {
       </Container>
     );
   }
-  if (currentQuestionNumber > GameRules.totalQuestions) {
-    user && saveHighScoreByName(user.username, currentScore);
-    return (
-      <GameOver handlePlayAgain={handlePlayAgain} currentScore={currentScore} />
-    );
+
+  const isGameOver = currentQuestionNumber > GameRules.totalQuestions;
+  if (isGameOver) {
+    saveHighScore();
+  }
+  function saveHighScore() {
+    if (user) {
+      saveHighScoreByName(user.username, currentScore);
+    }
   }
 
   return (
@@ -96,10 +100,19 @@ const GameCoordinator = () => {
             totalQuestions={GameRules.totalQuestions}
           />
         </Box>
-
-        <Skeleton borderRadius={20} isLoaded={!isLoading}>
-          <GameCard onSubmit={handleSumbit} image={currentQuestion.question} />
-        </Skeleton>
+        {isGameOver ? (
+          <GameOver
+            handlePlayAgain={handlePlayAgain}
+            currentScore={currentScore}
+          />
+        ) : (
+          <Skeleton borderRadius={20} isLoaded={!isLoading}>
+            <GameCard
+              onSubmit={handleSumbit}
+              image={currentQuestion.question}
+            />
+          </Skeleton>
+        )}
       </Container>
     </>
   );

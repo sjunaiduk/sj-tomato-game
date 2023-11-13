@@ -18,11 +18,10 @@ const GameOver = ({ currentScore, handlePlayAgain }: Props) => {
         maxWidth={"800px"}
         display={"flex"}
         flexDirection={"column"}
-        justifyContent={"center"}
         alignItems={"center"}
         border={useColorModeValue("1px solid gray", "1px solid white")}
-        paddingX={20}
-        paddingY={5}
+        paddingInline={"3rem"}
+        paddingBlock={"2rem"}
         borderRadius={20}
       >
         <Heading size={"4xl"} textAlign={"center"}>
