@@ -1,4 +1,4 @@
-import { Progress, Text, Flex, Box, HStack, VStack } from "@chakra-ui/react";
+import { Progress, Text, Box, HStack, VStack } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 interface Props {
